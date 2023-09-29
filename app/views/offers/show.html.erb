@@ -1,0 +1,35 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @offer %>
+
+<div>
+  <%= link_to "Edit this offer", edit_offer_path(@offer) %> |
+  <%= link_to "Back to offers", offers_path %>
+
+  <%= button_to "Destroy this offer", @offer, method: :delete %>
+</div>
+
+
+<%= form_with(model: @postulation, local: true) do |f| %>
+  <% if @postulation.errors.any? %>
+    <div id = 'error_explanation'>
+      <h2>Esta postulacion no se pudo crear por las siguientes razones</h2>
+      <ul>
+        <% @postulation.errors.full_messages.each do |msg|%>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :offer_id, value: @offer.id %>
+
+  <div class = 'field'>
+    <%= f.label :why_me %>
+    <%= f.text_field :why_me %>
+  </div>
+
+  <div class = 'actions'>
+    <%= f.submit %>
+  </div>
+<% end %>

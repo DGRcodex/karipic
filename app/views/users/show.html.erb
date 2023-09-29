@@ -1,0 +1,9 @@
+
+<% @user.attributes.each do |key, value| %>
+    <p><%= key %> : <%= value %></p>
+<% end %>
+
+
+<%= button_to 'eliminar este usuario', admin_delete_user_path(@user), method: :delete %>
+
+
