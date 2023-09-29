@@ -1,0 +1,2 @@
+# karipic
+ruby y aws
